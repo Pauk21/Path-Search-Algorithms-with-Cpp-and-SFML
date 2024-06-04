@@ -203,7 +203,7 @@ void GameScreen::DrawPath()
 	while (!Path.empty()) {
 		pair<int, int> p = Path.top();
 		Path.pop();
-
+		printf("-> (%d,%d) ", p.first, p.second);
 		if (*(gameBoard + p.first * WIDTH + p.second) != 2 &&
 			*(gameBoard + p.first * WIDTH + p.second) != 3) {
 			*(gameBoard + p.first * WIDTH + p.second) = 4;

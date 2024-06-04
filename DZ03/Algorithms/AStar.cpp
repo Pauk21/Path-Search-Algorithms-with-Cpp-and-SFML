@@ -45,35 +45,6 @@ double AStar::calculateHValue(int row, int col, Pair dest)
 		+ (col - dest.second) * (col - dest.second)));
 }
 
-// A Utility Function to trace the path from the source
-// to destination
-void AStar::tracePath(cell* cellDetails, Pair dest)
-{
-	printf("\nThe Path is ");
-	int row = dest.first;
-	int col = dest.second;
-
-	stack<Pair> Path;
-
-	while (!((*(cellDetails + row * WIDTH + col)).parent_i == row
-		&& (*(cellDetails + row * WIDTH + col)).parent_j == col)) {
-		Path.push(make_pair(row, col));
-		int temp_row = (*(cellDetails + row * WIDTH + col)).parent_i;
-		int temp_col = (*(cellDetails + row * WIDTH + col)).parent_j;
-		row = temp_row;
-		col = temp_col;
-	}
-
-	Path.push(make_pair(row, col));
-	while (!Path.empty()) {
-		pair<int, int> p = Path.top();
-		Path.pop();
-		printf("-> (%d,%d) ", p.first, p.second);
-	}
-
-	return;
-}
-
 // A Function to find the shortest path between
 // a given source cell to a destination cell according
 // to A* Search Algorithm
@@ -198,7 +169,6 @@ bool AStar::aStarSearch(int* grid, Pair src, Pair dest)
 				(*(cellDetails + (i - 1) * WIDTH + j)).parent_i = i;
 				(*(cellDetails + (i - 1) * WIDTH + j)).parent_j = j;
 				printf("The destination cell is found\n");
-				tracePath(cellDetails, dest);
 				foundDest = true;
 				return true;;
 			}
@@ -246,7 +216,6 @@ bool AStar::aStarSearch(int* grid, Pair src, Pair dest)
 				(*(cellDetails + (i + 1) * WIDTH + j)).parent_i = i;
 				(*(cellDetails + (i + 1) * WIDTH + j)).parent_j = j;
 				printf("The destination cell is found\n");
-				tracePath(cellDetails, dest);
 				foundDest = true;
 				return true;
 			}
@@ -293,7 +262,6 @@ bool AStar::aStarSearch(int* grid, Pair src, Pair dest)
 				(*(cellDetails + i * WIDTH + j + 1)).parent_i = i;
 				(*(cellDetails + i * WIDTH + j + 1)).parent_j = j;
 				printf("The destination cell is found\n");
-				tracePath(cellDetails, dest);
 				foundDest = true;
 				return true;
 			}
@@ -341,7 +309,6 @@ bool AStar::aStarSearch(int* grid, Pair src, Pair dest)
 				(*(cellDetails + i * WIDTH + j - 1)).parent_i = i;
 				(*(cellDetails + i * WIDTH + j - 1)).parent_j = j;
 				printf("The destination cell is found\n");
-				tracePath(cellDetails, dest);
 				foundDest = true;
 				return true;
 			}
@@ -390,7 +357,6 @@ bool AStar::aStarSearch(int* grid, Pair src, Pair dest)
 				(*(cellDetails + (i - 1) * WIDTH + j + 1)).parent_i = i;
 				(*(cellDetails + (i - 1) * WIDTH + j + 1)).parent_j = j;
 				printf("The destination cell is found\n");
-				tracePath(cellDetails, dest);
 				foundDest = true;
 				return true;
 			}
@@ -439,7 +405,7 @@ bool AStar::aStarSearch(int* grid, Pair src, Pair dest)
 				(*(cellDetails + (i - 1) * WIDTH + j - 1)).parent_i = i;
 				(*(cellDetails + (i - 1) * WIDTH + j - 1)).parent_j = j;
 				printf("The destination cell is found\n");
-				tracePath(cellDetails, dest);
+				//tracePath(cellDetails, dest);
 				foundDest = true;
 				return true;
 			}
@@ -487,7 +453,6 @@ bool AStar::aStarSearch(int* grid, Pair src, Pair dest)
 				(*(cellDetails + (i + 1) * WIDTH + j + 1)).parent_i = i;
 				(*(cellDetails + (i + 1) * WIDTH + j + 1)).parent_j = j;
 				printf("The destination cell is found\n");
-				tracePath(cellDetails, dest);
 				foundDest = true;
 				return true;
 			}
@@ -536,7 +501,6 @@ bool AStar::aStarSearch(int* grid, Pair src, Pair dest)
 				(*(cellDetails + (i + 1) * WIDTH + j - 1)).parent_i = i;
 				(*(cellDetails + (i + 1) * WIDTH + j - 1)).parent_j = j;
 				printf("The destination cell is found\n");
-				tracePath(cellDetails, dest);
 				foundDest = true;
 				return true;
 			}

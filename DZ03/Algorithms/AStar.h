@@ -28,7 +28,6 @@ private:
 	bool isUnBlocked(int* grid, int row, int col);
 	bool isDestination(int row, int col, Pair dest);
 	double calculateHValue(int row, int col, Pair dest);
-	void tracePath(cell* cellDetails, Pair dest);
 
 public:
 	bool aStarSearch(int* grid, Pair src, Pair dest);
