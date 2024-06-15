@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "../UI/Button.h"
+#include "Display.h"
 
 class UserInterface
 {
@@ -11,14 +12,13 @@ private:
 	
 	// background
 	sf::RectangleShape bg;
+
 	// Bools
 	bool pointASet;
 	bool pointBSet;
 	bool start;
 	bool stop;
 	bool restart;
-
-
 
 public:
 	UserInterface();
@@ -33,6 +33,9 @@ public:
 	Button buttonReset;
 	Button LeftArrow;
 	Button RightArrow;
+
+	// Display
+	Display dsp;
 
 	void Load();
 	void Update(sf::RenderWindow& window);

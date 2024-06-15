@@ -13,6 +13,7 @@ private:
 
 	bool isStarted;
 	bool foundPath;
+	bool doInstant;
 
 	// 0 - blocked cell
 	// 1 - free cell
@@ -22,6 +23,10 @@ private:
 	// 5 - transparent cell
 	int* gameBoard = new int[HEIGHT * WIDTH];
 	int hlColor;
+
+	// 1 instant
+	// 2 animated
+	int modeSelection;
 
 	Cell cell;
 
@@ -41,6 +46,7 @@ private:
 	void ResetBoard();
 	void StartSearch(sf::RenderWindow& window);
 	void DrawPath();
+	void SelectMode();
 
 	pair<int, int> start;
 	bool isSetStart;

@@ -18,8 +18,9 @@ void UserInterface::Update(sf::RenderWindow& window)
 	window.draw(buttonDraw.GetButton());
 	window.draw(buttonErase.GetButton());
 	window.draw(buttonReset.GetButton());
-	window.draw(LeftArrow.GetButton());
-	window.draw(RightArrow.GetButton());
+	//window.draw(LeftArrow.GetButton());
+	//window.draw(RightArrow.GetButton());
+	//window.draw(dsp.getDisplay());
 }
 
 void UserInterface::ButtonPressed()
@@ -31,8 +32,8 @@ void UserInterface::ButtonPressed()
 	buttonDraw.IsPressed();
 	buttonErase.IsPressed();
 	buttonReset.IsPressed();
-	LeftArrow.IsPressed();
-	RightArrow.IsPressed();
+	//LeftArrow.IsPressed();
+	//RightArrow.IsPressed();
 }
 
 void UserInterface::ButtonReleased()
@@ -44,8 +45,8 @@ void UserInterface::ButtonReleased()
 	buttonDraw.IsReleased();
 	buttonErase.IsReleased();
 	buttonReset.IsReleased();
-	LeftArrow.IsReleased();
-	RightArrow.IsReleased();
+	//LeftArrow.IsReleased();
+	//RightArrow.IsReleased();
 }
 
 void UserInterface::Load()
@@ -95,5 +96,4 @@ void UserInterface::Load()
 	buttonStop.SetPosition(1712, 30);
 	buttonStop.SetTexture("Images/ButtonSTOPPressed.png", "Images/ButtonSTOPReleased.png");
 
-	
 }

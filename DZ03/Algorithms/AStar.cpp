@@ -48,7 +48,7 @@ double AStar::calculateHValue(int row, int col, Pair dest)
 // A Function to find the shortest path between
 // a given source cell to a destination cell according
 // to A* Search Algorithm
-bool AStar::aStarSearch(int* grid, Pair src, Pair dest, sf::RenderWindow& window)
+bool AStar::aStarSearch(int* grid, Pair src, Pair dest, sf::RenderWindow& window, bool doInstant)
 {
 	float deltaTime = 500;
 	sf::Clock frClock;
@@ -136,16 +136,34 @@ bool AStar::aStarSearch(int* grid, Pair src, Pair dest, sf::RenderWindow& window
 		j = p.second.second;
 		*(closedList + i * WIDTH + j) = true;
 
+		if (!doInstant) {
+			sf::sleep(sf::milliseconds(5));
+			for (int ic = 0; ic < HEIGHT; ic++)
+			{
+				for (int jc = 0; jc < WIDTH; jc++)
+				{
+					if (*(closedList + ic * WIDTH + jc) &&
+						(ic != src.first || jc != src.second) &&
+						(ic != dest.first || jc != dest.second)) {
+						cel.UpdatePosition(POSX + jc * CELL_SIZE, POSY + ic * CELL_SIZE);
+						cel.UpdateState(6);
+						window.draw(cel.GetCell());
+					}
+				}
+			}
+		window.display();
+		}
+
 			/*
 			Generating all the 8 successor of this cell
 
-				N.W N N.E
-				\ | /
+				  N.W N N.E
+				    \ | /
 					\ | /
 				W----Cell----E
 					/ | \
 					/ | \
-				S.W S S.E
+				  S.W S S.E
 
 			Cell-->Popped Cell (i, j)
 			N --> North	 (i-1, j)

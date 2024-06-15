@@ -135,6 +135,7 @@
     <ClCompile Include="Game\GameScreen.cpp" />
     <ClCompile Include="UI\Button.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="UI\Display.cpp" />
     <ClCompile Include="UI\UserInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +143,7 @@
     <ClInclude Include="Game\Cell.h" />
     <ClInclude Include="Game\GameScreen.h" />
     <ClInclude Include="UI\Button.h" />
+    <ClInclude Include="UI\Display.h" />
     <ClInclude Include="UI\UserInterface.h" />
   </ItemGroup>
   <ItemGroup>

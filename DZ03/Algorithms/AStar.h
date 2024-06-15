@@ -37,7 +37,7 @@ private:
 	Cell cel;
 
 public:
-	bool aStarSearch(int* grid, Pair src, Pair dest, sf::RenderWindow& window);
+	bool aStarSearch(int* grid, Pair src, Pair dest, sf::RenderWindow& window, bool doInstant);
 	
 	// Declare a 2D array of structure to hold the details
 	// of that cell

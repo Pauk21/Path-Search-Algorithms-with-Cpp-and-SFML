@@ -14,6 +14,8 @@ GameScreen::GameScreen()
 	isStarted = false;
 	foundPath = false;
 	prevCell = 1;
+	doInstant = false;
+	modeSelection = 1;
 }
 
 void GameScreen::Update(sf::RenderWindow& window)
@@ -25,6 +27,7 @@ void GameScreen::Update(sf::RenderWindow& window)
 		BrushDrawing();
 		ResetBoard();
 		StartSearch(window);
+		SelectMode();	
 	}
 }
 
@@ -174,7 +177,7 @@ void GameScreen::StartSearch(sf::RenderWindow& window)
 					*(gameBoard + i * WIDTH + j) = 1;
 
 		isStarted = true;
-		foundPath = AS.aStarSearch(gameBoard, start, end, window);
+		foundPath = AS.aStarSearch(gameBoard, start, end, window, doInstant);
 		if (foundPath) {
 			DrawPath();
 		}
@@ -219,4 +222,24 @@ void GameScreen::DrawPath()
 		std::cout << endl;
 	}
 	std::cout << endl << endl;
+}
+
+void GameScreen::SelectMode() {
+
+	if (UI.LeftArrow.IsPressed()) {
+		modeSelection--;
+		if (modeSelection < 1) modeSelection = 2;
+	}
+
+	if (UI.RightArrow.IsPressed()) {
+		modeSelection++;
+		if (modeSelection > 2) modeSelection = 1;
+	}
+
+	//if (modeSelection == 1)
+	//	doInstant = true;
+	//else
+	//	doInstant = false;
+
+	UI.dsp.ChangeState();
 }
