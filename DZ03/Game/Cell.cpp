@@ -42,6 +42,9 @@ sf::RectangleShape Cell::GetCell()
 	case 5:
 		cell.setFillColor(sf::Color::Transparent);
 		break;
+	case 6:
+		cell.setFillColor(sf::Color::Cyan);
+		break;
 	}
 
 	return cell;

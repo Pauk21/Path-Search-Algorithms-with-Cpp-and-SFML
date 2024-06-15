@@ -18,6 +18,8 @@ private:
 	bool stop;
 	bool restart;
 
+
+
 public:
 	UserInterface();
 
@@ -29,6 +31,8 @@ public:
 	Button buttonDraw;
 	Button buttonErase;
 	Button buttonReset;
+	Button LeftArrow;
+	Button RightArrow;
 
 	void Load();
 	void Update(sf::RenderWindow& window);

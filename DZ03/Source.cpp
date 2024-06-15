@@ -2,6 +2,15 @@
 #include "Game/GameScreen.h"
 #include "UI/UserInterface.h"
 
+
+// POPRAVI DIJAGONALE
+// DODAJ ANIMACIJU
+// ERROR MESSAGE AK NEMRE NAC
+// SELECT DRUGIH ALGO
+// SUCCESS AKO NADE ONAK PREKO CIJELOG EKRANA
+// DODAJ SMIJESNE ZVUKOVE, TO JE DONIJELO NA ZADNJEM 3 BODA
+
+
 int main() {
 	GameScreen gameScreen;
 	UserInterface UI;
@@ -11,7 +20,7 @@ int main() {
 	settings.antialiasingLevel = 8;
 
 	sf::Clock frameClock;
-	float deltaTime = 1.0f / 60.0f;
+	float deltaTime = 500;
 
 	// Kreira se glavni Window
 	sf::RenderWindow window(sf::VideoMode(1920, 1080), "DZ03 by PAUK", sf::Style::Fullscreen, settings);
@@ -37,13 +46,13 @@ int main() {
 			if (evnt.type == sf::Event::MouseButtonReleased) 
 				if (evnt.mouseButton.button == sf::Mouse::Left) UI.ButtonReleased();
 		}
-		if (frameClock.getElapsedTime().asMilliseconds() >= deltaTime) {
+		//if (frameClock.getElapsedTime().asMilliseconds() >= deltaTime) {
 			window.clear();
 			UI.Update(window);
 			gameScreen.Update(window);
 			window.display();
-			frameClock.restart();
-		}
+			//frameClock.restart();
+		//}
 		
 	}
 }

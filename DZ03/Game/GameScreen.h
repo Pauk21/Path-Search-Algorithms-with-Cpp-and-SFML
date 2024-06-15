@@ -39,7 +39,7 @@ private:
 	void HLBoard(sf::RenderWindow& window);
 	void BrushDrawing();
 	void ResetBoard();
-	void StartSearch();
+	void StartSearch(sf::RenderWindow& window);
 	void DrawPath();
 
 	pair<int, int> start;

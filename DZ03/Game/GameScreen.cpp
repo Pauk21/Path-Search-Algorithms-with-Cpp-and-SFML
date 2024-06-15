@@ -24,7 +24,7 @@ void GameScreen::Update(sf::RenderWindow& window)
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
 		BrushDrawing();
 		ResetBoard();
-		StartSearch();
+		StartSearch(window);
 	}
 }
 
@@ -165,7 +165,7 @@ void GameScreen::ResetBoard()
 	}
 }
 
-void GameScreen::StartSearch()
+void GameScreen::StartSearch(sf::RenderWindow& window)
 {	
 	if (UI.buttonStart.IsPressed() && isStarted == false) {
 		for (int i = 0; i < HEIGHT; i++)
@@ -174,7 +174,7 @@ void GameScreen::StartSearch()
 					*(gameBoard + i * WIDTH + j) = 1;
 
 		isStarted = true;
-		foundPath = AS.aStarSearch(gameBoard, start, end);
+		foundPath = AS.aStarSearch(gameBoard, start, end, window);
 		if (foundPath) {
 			DrawPath();
 		}

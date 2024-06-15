@@ -1,7 +1,9 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 #include <iostream>
 #include <stack>
 #include <set>
+#include "../Game/Cell.h"
 
 using namespace std;
 
@@ -28,9 +30,14 @@ private:
 	bool isUnBlocked(int* grid, int row, int col);
 	bool isDestination(int row, int col, Pair dest);
 	double calculateHValue(int row, int col, Pair dest);
+	bool* closedList = new bool[HEIGHT * WIDTH];
+
+	
+
+	Cell cel;
 
 public:
-	bool aStarSearch(int* grid, Pair src, Pair dest);
+	bool aStarSearch(int* grid, Pair src, Pair dest, sf::RenderWindow& window);
 	
 	// Declare a 2D array of structure to hold the details
 	// of that cell

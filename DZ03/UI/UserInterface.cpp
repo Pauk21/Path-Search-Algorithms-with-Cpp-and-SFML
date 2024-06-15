@@ -18,6 +18,8 @@ void UserInterface::Update(sf::RenderWindow& window)
 	window.draw(buttonDraw.GetButton());
 	window.draw(buttonErase.GetButton());
 	window.draw(buttonReset.GetButton());
+	window.draw(LeftArrow.GetButton());
+	window.draw(RightArrow.GetButton());
 }
 
 void UserInterface::ButtonPressed()
@@ -29,6 +31,8 @@ void UserInterface::ButtonPressed()
 	buttonDraw.IsPressed();
 	buttonErase.IsPressed();
 	buttonReset.IsPressed();
+	LeftArrow.IsPressed();
+	RightArrow.IsPressed();
 }
 
 void UserInterface::ButtonReleased()
@@ -40,6 +44,8 @@ void UserInterface::ButtonReleased()
 	buttonDraw.IsReleased();
 	buttonErase.IsReleased();
 	buttonReset.IsReleased();
+	LeftArrow.IsReleased();
+	RightArrow.IsReleased();
 }
 
 void UserInterface::Load()
@@ -68,6 +74,16 @@ void UserInterface::Load()
 	buttonReset.SetSize(128, 64);
 	buttonReset.SetPosition(656, 30);
 	buttonReset.SetTexture("Images/ButtonRESETPressed.png", "Images/ButtonRESETReleased.png");
+
+	// LEFT ARROW
+	LeftArrow.SetSize(32, 64);
+	LeftArrow.SetPosition(900, 30);
+	LeftArrow.SetTexture("Images/LeftArrowPressed.png", "Images/LeftArrow.png");
+
+	// RIGHT ARROW
+	RightArrow.SetSize(32, 64);
+	RightArrow.SetPosition(948, 30);
+	RightArrow.SetTexture("Images/RightArrowPressed.png", "Images/RightArrow.png");
 
 	// BUTTON START
 	buttonStart.SetSize(128, 64);
